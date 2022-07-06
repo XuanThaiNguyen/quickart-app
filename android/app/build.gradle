@@ -3,6 +3,14 @@ apply plugin: "com.android.application"
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
 
+project.ext.vectoricons = [
+    iconFontNames: [
+        'Gilroy-Bold.ttf',
+        'Gilroy-Medium.ttf',
+        'Gilroy-SemiBold.ttf',
+    ] // Name of the font files you want to copy
+]
+
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
  * and bundleReleaseJsAndAssets).

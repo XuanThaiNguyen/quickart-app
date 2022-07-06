@@ -1,5 +1,6 @@
 import React from 'react';
 import {GestureResponderEvent, StyleSheet, Text} from 'react-native';
+import Fonts from '../themes/Fonts';
 
 type WTextProps = {
   type?: string;
@@ -72,6 +73,18 @@ export const styles: any = StyleSheet.create({
   },
   center: {
     textAlign: 'center',
+  },
+  semi48: {
+    fontFamily: Fonts.type.SemiBold,
+    fontSize: Fonts.size.S48,
+  },
+  semi24: {
+    fontFamily: Fonts.type.SemiBold,
+    fontSize: Fonts.size.S24,
+  },
+  medi16: {
+    fontFamily: Fonts.type.Medium,
+    fontSize: Fonts.size.S16,
   },
 });
 
