@@ -1,6 +1,11 @@
 enum AppRoutes {
-  Login = 'Login',
   Loading = 'Loading',
+
+  //Auth
+  Login = 'Login',
+  Onboarding = 'Onboarding',
+
+  //Shop
   Shop = 'Shop',
 }
 
