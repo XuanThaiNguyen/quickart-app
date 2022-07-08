@@ -8,11 +8,11 @@ import {name as appName} from './app.json';
 
 const Quickart = () => {
   return (
-    // <Provider store={store}>
-    // <PersistGate loading={null} persistor={persistor}>
-    <App />
-    // </PersistGate>
-    // </Provider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
   );
 };
 

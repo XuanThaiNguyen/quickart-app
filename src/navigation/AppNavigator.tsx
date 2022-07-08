@@ -4,6 +4,7 @@ import AppRoutes, {RootRoutes} from './AppRoutes';
 import LoadingScreen from '../components/Loading';
 import ShopScreen from '../screens/Shop';
 import AuthStackNavigator from './AuthNavigator';
+import OnboardingScreen from '../screens/Auth/OnboardingScreen';
 
 const navTheme = {
   ...DefaultTheme,

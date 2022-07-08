@@ -40,6 +40,7 @@ type WButtonProps = {
   loadingIndicatorSize?: number;
   secondary?: boolean;
   fill?: boolean;
+  bgColor?: string;
 };
 
 const WButton = ({
@@ -68,6 +69,7 @@ const WButton = ({
   loading,
   loadingIndicatorSize,
   fill,
+  bgColor,
 }: WButtonProps) => {
   return (
     <WTouchable
@@ -90,6 +92,7 @@ const WButton = ({
         h && {height: h},
         w && {width: w},
         selfCenter && styles.selfCenter,
+        bgColor && {backgroundColor: bgColor},
         style,
       ]}
       onPress={onPress}

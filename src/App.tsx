@@ -1,11 +1,22 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, StatusBar, Appearance} from 'react-native';
 import AppNavigator from './navigation/AppNavigator';
-import AppRoutes from './navigation/AppRoutes';
+import AppRoutes, {RootRoutes} from './navigation/AppRoutes';
+import {useAppSelector} from './utils/hooks';
 
 const App = () => {
-  const [rootRoute, setRoute] = useState(AppRoutes.Login);
+  const {user} = useAppSelector(state => state.auth);
+
+  const [rootRoute, setRoute] = useState<RootRoutes>(AppRoutes.Loading);
   const colorScheme = Appearance.getColorScheme();
+
+  useEffect(() => {
+    if (user) {
+      setRoute(AppRoutes.Shop);
+    } else {
+      setRoute(AppRoutes.Login);
+    }
+  }, []);
 
   return (
     <View style={styles.flex}>

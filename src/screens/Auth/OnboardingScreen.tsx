@@ -7,8 +7,20 @@ import WButton from '../../components/WButton';
 import Container from '../../components/Container';
 import {SCREEN_WIDTH} from '../../themes/Constants';
 import Colors from '../../themes/Colors';
+import {StackActions, useNavigation} from '@react-navigation/native';
+import AppRoutes from '../../navigation/AppRoutes';
+import {useAppDispatch} from '../../utils/hooks';
+import {actions as AppActions} from '../../redux/app';
 
 const OnboardingScreen = () => {
+  const dispatch = useAppDispatch();
+  const navigation = useNavigation();
+
+  const onGetStarted = () => {
+    navigation.dispatch(StackActions.replace(AppRoutes.Login));
+    dispatch(AppActions.setIsVisited());
+  };
+
   return (
     <Container>
       <ImageBackground
@@ -26,7 +38,11 @@ const OnboardingScreen = () => {
         <WText mTop={10} mBottom={30} type="medi16" color={Colors.lightWhite}>
           Get your groceries in as fast as one hour
         </WText>
-        <WButton title="Get Started" w={SCREEN_WIDTH - 45} />
+        <WButton
+          title="Get Started"
+          w={SCREEN_WIDTH - 45}
+          onPress={onGetStarted}
+        />
       </ImageBackground>
     </Container>
   );

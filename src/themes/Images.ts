@@ -1,5 +1,7 @@
 import logoIcon from '../assets/Icons/logo.png';
+
 import onboardingImage from '../assets/Images/onboarding.png';
+import loginImage from '../assets/Images/login.png';
 
 const Images = {
   //icons
@@ -7,6 +9,7 @@ const Images = {
 
   //images
   onboardingImage,
+  loginImage,
 };
 
 export default Images;

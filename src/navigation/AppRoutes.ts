@@ -11,4 +11,4 @@ enum AppRoutes {
 
 export default AppRoutes;
 
-export type RootRoutes = 'Login' | 'Loading' | 'Shop';
+export type RootRoutes = 'Login' | 'Loading' | 'Shop' | 'Onboarding';

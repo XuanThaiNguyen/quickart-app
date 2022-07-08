@@ -18,17 +18,11 @@ export function normalize(size: number) {
 }
 
 export const size = {
-  S10: normalize(10),
-  S12: normalize(12),
   S14: normalize(14),
-  S15: normalize(15),
-  S20: normalize(20),
-  S32: normalize(32),
-  S34: normalize(34),
-
-  // new
-  S24: normalize(24),
   S16: normalize(16),
+  S18: normalize(18),
+  S24: normalize(24),
+  S26: normalize(26),
   S48: normalize(48),
 };
 

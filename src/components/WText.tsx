@@ -74,17 +74,29 @@ export const styles: any = StyleSheet.create({
   center: {
     textAlign: 'center',
   },
+  semi14: {
+    fontFamily: Fonts.type.SemiBold,
+    fontSize: Fonts.size.S14,
+  },
+  semi18: {
+    fontFamily: Fonts.type.SemiBold,
+    fontSize: Fonts.size.S18,
+  },
+  semi26: {
+    fontFamily: Fonts.type.SemiBold,
+    fontSize: Fonts.size.S26,
+  },
   semi48: {
     fontFamily: Fonts.type.SemiBold,
     fontSize: Fonts.size.S48,
   },
-  semi24: {
-    fontFamily: Fonts.type.SemiBold,
-    fontSize: Fonts.size.S24,
-  },
   medi16: {
     fontFamily: Fonts.type.Medium,
     fontSize: Fonts.size.S16,
+  },
+  medi18: {
+    fontFamily: Fonts.type.Medium,
+    fontSize: Fonts.size.S18,
   },
 });
 
