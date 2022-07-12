@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {StyleSheet, TextInput} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Alert, StyleSheet, TextInput} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Container from '../../components/Container';
 import WText from '../../components/WText';
@@ -13,8 +13,22 @@ import {showMenuOptions} from '../../utils/dialogs';
 import Image from 'react-native-fast-image';
 import WButton from '../../components/WButton';
 import Fonts from '../../themes/Fonts';
+import {
+  GoogleSignin,
+  statusCodes,
+  User,
+} from '@react-native-google-signin/google-signin';
+import {useAppDispatch} from '../../utils/hooks';
+import {actions as AuthActions} from '../../redux/auth';
+import {useNavigation} from '@react-navigation/native';
+import AppRoutes from '../../navigation/AppRoutes';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootAuthStackPrams} from '../../navigation/AuthNavigator';
 
 const AuthScreen = () => {
+  const dispatch = useAppDispatch();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootAuthStackPrams>>();
   const newCountries = COUNTRIES.map(e => {
     return {...e, label: e.name};
   });
@@ -22,6 +36,36 @@ const AuthScreen = () => {
   const [phoneCode, setPhoneCode] = useState<string>('+84');
   const [flagUrl, setFlagUrl] = useState<string>(FLAG_URL);
   const [phoneNumber, setPhoneNumber] = useState<string>('');
+
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId:
+        '721695456224-4hq5v060gco0lnp0ptpbje030olcebit.apps.googleusercontent.com',
+      offlineAccess: true,
+    });
+  }, []);
+
+  const onSignInWithGoogle = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      await GoogleSignin.signIn().then((result: User) => {
+        dispatch(AuthActions.setUser(result.user));
+      });
+    } catch (error: any) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        return;
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        return;
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        return;
+      } else {
+        Alert.alert('', error?.message);
+        console.log('error', error);
+      }
+    }
+  };
+
+  const onSignInWithAccount = () => navigation.navigate(AppRoutes.Login);
 
   const onSelectCountry = () => {
     showMenuOptions(
@@ -70,12 +114,14 @@ const AuthScreen = () => {
           titleType="semi18"
           bgColor={Colors.lightBlue}
           selfCenter
+          onPress={onSignInWithGoogle}
         />
         <WButton
-          title="Continue with Facebook"
+          title="Continue with Account"
           titleType="semi18"
           bgColor={Colors.darkblue}
           selfCenter
+          onPress={onSignInWithAccount}
         />
       </WView>
     </Container>

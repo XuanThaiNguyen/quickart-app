@@ -2,13 +2,18 @@ enum AppRoutes {
   Loading = 'Loading',
 
   //Auth
-  Login = 'Login',
+  Auth = 'Auth',
   Onboarding = 'Onboarding',
+  Login = 'Login',
+  Signup = 'Signup',
 
   //Shop
   Shop = 'Shop',
+
+  //Other
+  Empty = 'Empty',
 }
 
 export default AppRoutes;
 
-export type RootRoutes = 'Login' | 'Loading' | 'Shop' | 'Onboarding';
+export type RootRoutes = 'Auth' | 'Loading' | 'Shop' | 'Onboarding';

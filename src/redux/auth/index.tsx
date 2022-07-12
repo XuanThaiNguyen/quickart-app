@@ -1,7 +1,16 @@
 import {createSlice} from '@reduxjs/toolkit';
 
+export type userProps = {
+  email: string;
+  familyName: string;
+  givenName: string;
+  id: string;
+  name: string;
+  photo: string;
+};
+
 type initialStateAuthProps = {
-  user: object | null;
+  user: userProps | null;
 };
 
 const initialState: initialStateAuthProps = {
@@ -9,9 +18,13 @@ const initialState: initialStateAuthProps = {
 };
 
 const authSlice = createSlice({
-  name: 'app',
+  name: 'auth',
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    setUser: (state, {payload}) => {
+      state.user = payload;
+    },
+  },
   extraReducers: {},
 });
 

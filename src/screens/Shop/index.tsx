@@ -1,11 +1,13 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import Container from '../../components/Container';
+import WText from '../../components/WText';
+import Colors from '../../themes/Colors';
 
 const ShopScreen = () => {
   return (
-    <View>
-      <Text>ShopScreen</Text>
-    </View>
+    <Container>
+      <WText color={Colors.black}>ShopScreen</WText>
+    </Container>
   );
 };
 

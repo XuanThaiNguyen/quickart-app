@@ -14,9 +14,9 @@ const App = () => {
     if (user) {
       setRoute(AppRoutes.Shop);
     } else {
-      setRoute(AppRoutes.Login);
+      setRoute(AppRoutes.Auth);
     }
-  }, []);
+  }, [user]);
 
   return (
     <View style={styles.flex}>

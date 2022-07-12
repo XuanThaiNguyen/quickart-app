@@ -1,5 +1,6 @@
 import React from 'react';
 import {GestureResponderEvent, StyleSheet, Text} from 'react-native';
+import Colors from '../themes/Colors';
 import Fonts from '../themes/Fonts';
 
 type WTextProps = {
@@ -27,7 +28,7 @@ type WTextProps = {
 const WText = (props: WTextProps) => {
   const {
     type,
-    color,
+    color = Colors.lightBlack,
     center,
     style,
     mTop,
